@@ -52,6 +52,7 @@ configure_zsh() {
   center "Set ZSH as default"
   printf "${END}"
 
+  sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh
   chsh -s $(which zsh) $USER
 
   wget https://raw.githubusercontent.com/itbrasil-odoo/linux-server-zsh/main/.zshrc -O $HOME/.zshrc
@@ -63,6 +64,7 @@ download_theme() {
   center "Download spaceship theme"
   printf "${END}"
 
+  ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   SPACESHIP_DIR="$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
   git clone https://github.com/denysdovhan/spaceship-prompt.git $SPACESHIP_DIR
   git clone https://github.com/spaceship-prompt/spaceship-vi-mode.git $ZSH_CUSTOM/plugins/spaceship-vi-mode
@@ -92,3 +94,5 @@ main() {
   download_theme
   finish
 }
+
+main
