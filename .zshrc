@@ -1,7 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="spaceship"
 HIST_STAMPS="yyyy-mm-dd"
-plugins=(git python vscode docker docker-compose gcloud pyenv yarn)
+plugins=(git spaceship-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
